@@ -6,6 +6,7 @@ import User from "../models/user.model";
 import { ConnectToDB } from "../mongoose";
 import Thread from "../models/thread.model";
 import { FilterQuery, SortOrder } from "mongoose";
+import Community from "../models/community.model";
 
 type params = {
   userId: string;
@@ -13,10 +14,19 @@ type params = {
   username: string;
   image: string;
   bio: string;
-  // onboarded:boolean
   path: string;
 };
 
+
+export async function fetchUser(userId: string) {
+  try {
+    ConnectToDB();
+
+    return await User.findOne({ id: userId });
+  } catch (error: any) {
+    throw new Error(`Failed to fetch user: ${error.message}`);
+  }
+}
 export const updateUser = async ({
   userId,
   username,
@@ -42,16 +52,6 @@ export const updateUser = async ({
   }
 };
 
-export const fetchUser = async (userId: string | undefined) => {
-  await ConnectToDB();
-
-  try {
-    const user = await User.findOne({ id: userId });
-    return user;
-  } catch (error) {
-    console.log("user not found", error);
-  }
-};
 export const fetchUserPosts = async (userId: string | undefined) => {
   await ConnectToDB();
 
