@@ -73,7 +73,7 @@ export const fetchThread = async (threadId: string) => {
       .populate({
         path: "auther",
         model: User,
-        select: "name image parentId _id",
+        select: "name image parentId id",
       })
       .populate({
         path: "children",
@@ -82,7 +82,7 @@ export const fetchThread = async (threadId: string) => {
           {
             path: "auther",
             model: User,
-            select: "name image parentId _id",
+            select: "name image parentId id",
           },
           {
             path:"children",
@@ -90,7 +90,7 @@ export const fetchThread = async (threadId: string) => {
             populate:{
               path:"auther",
               model:User,
-              select:"name image parentId _id"
+              select:"name image parentId id"
             }
           }
         ],

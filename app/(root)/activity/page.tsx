@@ -18,7 +18,6 @@ import { redirect } from "next/navigation";
 
 const page = async () => {
   const user = await currentUser();
-  console.log(user?.id);
   if (!user?.id) return null;
 
   const userInfo = await fetchUser(user?.id);

@@ -19,8 +19,8 @@ type params = {
 
 
 export async function fetchUser(userId: string) {
+  ConnectToDB();
   try {
-    ConnectToDB();
 
     return await User.findOne({ id: userId });
   } catch (error: any) {

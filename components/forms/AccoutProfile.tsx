@@ -74,7 +74,6 @@ const AccoutProfile = ({ user, btnTitle }: AccountProfilePropsType) => {
     } else {
       router.push("/");
     }
-    console.log(values);
   };
   const handleImage = (e: any, fieldChange: (value: string) => void) => {
     e.preventDefault();

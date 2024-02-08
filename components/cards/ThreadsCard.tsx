@@ -39,7 +39,7 @@ export default function ThreadsCard({
   comments,
   isComment,
 }: props) {
-  console.log(auther.id)
+  console.log(auther)
   return (
     <article className={`flex w-full flex-col  ${isComment? "px-0 sm:px-7 " : "bg-dark-2 rounded-xl p-7"}`}>
       <div className="flex items-start justify-between">
